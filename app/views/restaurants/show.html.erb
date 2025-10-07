@@ -1,0 +1,15 @@
+<h1>Index#show</h1>
+<p>Find me in app/views/restaurants/show.html.erb</p>
+
+<h2><%= @restaurant.name %></h2>
+<p>Restaurant address: <%= @restaurant.address %></p>
+<p>Restaurant phone number: <%= @restaurant.phone_number %></p>
+<p>Restaurant category: <%= @restaurant.category %></p>
+
+<p><%= link_to "back to list", "/restaurants" %></p>
+<%# <p> %>
+<%# <%= link_to "Edit this restaurant", edit_restaurant_path %>
+<%# </p> %>
+<%# <p><%= link_to "Delete this restaurant", restaurant_path(@restaurant),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%# </p> %>
