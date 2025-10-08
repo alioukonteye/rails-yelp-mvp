@@ -10,15 +10,18 @@
 
 require 'faker'
 
+puts 'Cleaning bd...'
+Restaurant.destroy_all
+
 categories = ["chinese", "italian", "japanese", "french", "belgian"]
 
-100.times do
+10.times do
   new_restaurant = Restaurant.new(
     name: Faker::Name.name,
     address: Faker::Quote.famous_last_words,
     category: categories.sample
   )
-  puts 'restaurant created'
   new_restaurant.save
-  puts 'restaurant saved'
+  puts "#{new_restaurant.name} created"
 end
+puts "#{Restaurant.count} restaurant created"
