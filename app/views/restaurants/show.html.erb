@@ -6,10 +6,17 @@
 <p>Restaurant phone number: <%= @restaurant.phone_number %></p>
 <p>Restaurant category: <%= @restaurant.category %></p>
 
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.select :rating, Review::RATING %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
+
+
+<ul>
+<% @reviews.each do |review| %>
+<li><%= review.rating %> - <%=review.content %></li>
+<% end %>
+</ul>
+<p><%= link_to "Add a review ", "/restaurants/#{@restaurant.id}/reviews/new" %></p>
 <p><%= link_to "back to list", "/restaurants" %></p>
-<%# <p> %>
-<%# <%= link_to "Edit this restaurant", edit_restaurant_path %>
-<%# </p> %>
-<%# <p><%= link_to "Delete this restaurant", restaurant_path(@restaurant),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <%# </p> %>
